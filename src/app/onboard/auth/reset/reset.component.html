@@ -1,0 +1,131 @@
+<div class="resultSection" *ngIf="spinner">
+  <button mat-button><mat-spinner diameter="60"></mat-spinner></button>
+  <h5>Processing your Request</h5>
+</div>
+
+<div class="authSection" *ngIf="reset && !spinner">
+  <h2>Reset Password</h2>
+  <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+
+  <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">
+    <!-- Password Form Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a Password</mat-label>
+      <mat-icon matPrefix class="matPrefix">vpn_key</mat-icon>
+      <input matInput type="password" formControlName="password" />
+      <mat-icon
+        matSuffix
+        class="matSuffix"
+        *ngIf="
+          resetForm.controls['password'].valid ||
+          (resetForm.controls['password'].untouched &&
+            resetForm.controls['password'].pristine)
+        "
+      >
+        password
+      </mat-icon>
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="
+          (resetForm.controls['password'].touched ||
+            resetForm.controls['password'].dirty) &&
+          resetForm.controls['password'].invalid
+        "
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>Enter your Password</span>
+        <span *ngIf="resetForm.controls['password'].errors?.pattern">
+          At least 8 characters - A-Z, a-z, 0-9, Symbols
+        </span>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Confirm your Password</mat-label>
+      <mat-icon matPrefix class="matPrefix">vpn_key</mat-icon>
+      <input
+        matInput
+        [type]="hide ? 'password' : 'text'"
+        formControlName="confirmPassword"
+      />
+      <mat-icon
+        matSuffix
+        class="matSuffix"
+        *ngIf="
+          resetForm.controls['confirmPassword'].valid ||
+          (resetForm.controls['confirmPassword'].untouched &&
+            resetForm.controls['confirmPassword'].pristine)
+        "
+        (click)="hide = !hide"
+        >{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon
+      >
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="
+          (resetForm.controls['confirmPassword'].touched ||
+            resetForm.controls['confirmPassword'].dirty) &&
+          resetForm.controls['confirmPassword'].invalid
+        "
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>Enter your Password</span>
+
+        <span
+          *ngIf="
+            resetForm.controls['confirmPassword'].errors?.confirmedValidator
+          "
+        >
+          Password didn't match.
+        </span>
+      </div>
+    </mat-form-field>
+
+    <!-- Remember Password -->
+    <a routerLink="/login">Remember Password?</a>
+
+    <!-- Reset Button -->
+    <button
+      type="submit"
+      mat-stroked-button
+      color="primary"
+      [disabled]="resetForm.invalid"
+      *ngIf="!loading"
+    >
+      Reset Password
+    </button>
+    <button type="submit" mat-button color="primary" *ngIf="loading">
+      <mat-icon><mat-spinner diameter="20"></mat-spinner></mat-icon> Resetting
+      Password
+    </button>
+  </form>
+
+  <small>
+    * By signing up, you agree to our <a href="">Terms of Use</a> and
+    acknowledge that you read our <a href="">Privacy Policy</a>. Protected by
+    Google reCAPTCHA.
+  </small>
+</div>
+
+<div class="resultSection" *ngIf="notReset && !spinner">
+  <img
+    src="https://image.freepik.com/free-vector/400-error-bad-request-concept-illustration_114360-1933.jpg"
+    alt="Link Expired"
+  />
+  <h4>{{ notReset?.message }}</h4>
+  <button mat-raised-button color="primary" routerLink="/forgot-password">
+    Request new Reset Link
+  </button>
+</div>
+
+<div class="resultSection" *ngIf="resetResult && !spinner">
+  <img
+    src="https://image.freepik.com/free-vector/verified-concept-illustration_114360-5138.jpg"
+    alt="Password Reset"
+  />
+  <h4>{{ resetResult?.message }}</h4>
+  <button mat-raised-button color="primary" routerLink="/login">
+    Login to continue
+  </button>
+</div>

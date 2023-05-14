@@ -1,0 +1,26 @@
+<div class="dataContainer">
+  <div class="containerHeader">
+    <div>
+      <h1>
+        Clients <span>{{ clientsData?.length | number: '2.0' }}</span>
+      </h1>
+      <small
+        >Sort and keep track of the people who interact with your site.</small
+      >
+    </div>
+    <div class="actionButtons">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/clients/add-client"
+      >
+        <mat-icon>person_add_alt</mat-icon>Add Client
+      </button>
+      <button mat-stroked-button color="primary" routerLink="/add-client">
+        <mat-icon>tune</mat-icon>More Options
+      </button>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

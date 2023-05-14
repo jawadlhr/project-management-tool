@@ -1,0 +1,26 @@
+<div class="resultSection" *ngIf="spinner">
+  <button mat-button><mat-spinner diameter="60"></mat-spinner></button>
+  <h5>Activating your account</h5>
+</div>
+
+<div class="resultSection" *ngIf="activated && !spinner">
+  <img
+    src="https://image.freepik.com/free-vector/verified-concept-illustration_114360-5138.jpg"
+    alt="Account Activated"
+  />
+  <h4>{{ responseMessage?.message }}</h4>
+  <button mat-raised-button color="primary" routerLink="/login">
+    Login to continue
+  </button>
+</div>
+
+<div class="resultSection" *ngIf="notActivated && !spinner">
+  <img
+    src="https://image.freepik.com/free-vector/400-error-bad-request-concept-illustration_114360-1933.jpg"
+    alt="Link Expired"
+  />
+  <h4>{{ responseMessage?.message }}</h4>
+  <button mat-raised-button color="primary" routerLink="/resend">
+    Resend Activation Link
+  </button>
+</div>

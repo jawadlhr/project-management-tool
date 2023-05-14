@@ -1,0 +1,141 @@
+:host {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.cardView {
+  width: calc(15vw + 300px);
+  height: calc(10vw + 150px);
+  background: linear-gradient(#f8f8f8, #f5f5f5);
+  box-shadow: 4px 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 50px;
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .additionalInfo {
+    position: absolute;
+    width: calc(5vw + 100px);
+    height: 100%;
+    background: linear-gradient(#de685e, #ee786e);
+    transition: width 0.4s;
+    overflow: hidden;
+    z-index: 2;
+    .mainCard {
+      width: calc(5vw + 100px);
+      height: 100%;
+      position: relative;
+      float: left;
+      h5 {
+        top: 15%;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px;
+        background: rgba(0, 0, 0, 0.15);
+        padding: 2px 14px;
+        border-radius: 100px;
+        white-space: nowrap;
+      }
+      .socialIcons {
+        border-radius: 100px;
+        white-space: nowrap;
+        top: 87%;
+        a {
+          background: rgba(0, 0, 0, 0.15);
+          padding: 13px 3px 0 3px;
+          margin: 3px;
+          border-radius: 5px;
+          svg {
+            width: 24px;
+          }
+        }
+      }
+      img {
+        width: calc(3vw + 80px);
+        height: calc(3vw + 80px);
+        border-radius: 50%;
+      }
+    }
+    .mainCard::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 10%;
+      right: -2px;
+      height: 80%;
+      border-left: 2px solid rgba(0, 0, 0, 0.075);
+    }
+    .moreInfo {
+      width: calc(10vw + 200px);
+      float: left;
+      position: absolute;
+      left: calc(5vw + 100px);
+      height: 100%;
+      padding: calc(1vw + 18px) calc(1vw + 10px);
+      color: #fff;
+      .editClient {
+        position: absolute;
+        top: 4px;
+        right: 5px;
+      }
+      .deleteClient {
+        position: absolute;
+        top: 4px;
+        left: 5px;
+      }
+      .info span + span {
+        float: right;
+      }
+      .stats {
+        font-size: 2rem;
+        display: flex;
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        right: 1rem;
+        top: auto;
+        color: #fff;
+        span {
+          font-size: 24px;
+          line-height: 32px;
+        }
+        > div {
+          flex: 1;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .generalInfo {
+    width: calc(10vw + 200px);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: calc(1vw + 22px) calc(1vw + 10px);
+    text-align: center;
+    line-height: 18px;
+    small {
+      position: absolute;
+      bottom: 5px;
+      right: 15px;
+    }
+  }
+}
+
+.cardView:hover .additionalInfo {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}

@@ -1,0 +1,51 @@
+<!--- User Intro -->
+<div class="col-3">
+  <div class="userIntro">
+    <div class="userIntroHeader">
+      <h3>Highlights</h3>
+      <button mat-icon-button (click)="openIntroDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div class="userHighlights">
+      <ul>
+        <li>
+          <mat-icon inline>alternate_email</mat-icon
+          ><span>{{ profileData?.username }}</span>
+        </li>
+        <li>
+          <mat-icon inline>work_outline</mat-icon
+          ><span
+            >{{ profileData?.jobTitle }} at
+            {{ profileData?.organization }}</span
+          >
+        </li>
+        <li>
+          <mat-icon inline>male</mat-icon><span>{{ profileData?.gender }}</span>
+        </li>
+        <li>
+          <mat-icon inline>cake</mat-icon><span>{{ profileData?.dob }}</span>
+        </li>
+        <li>
+          <mat-icon inline>email</mat-icon><span>{{ profileData?.email }}</span>
+        </li>
+        <li>
+          <mat-icon inline>phone_iphone</mat-icon
+          ><span>{{ profileData?.phone }}</span>
+        </li>
+        <li>
+          <mat-icon inline>location_on</mat-icon
+          ><span>{{ profileData?.location }}</span>
+        </li>
+
+        <!-- <li>
+        <mat-icon inline>business</mat-icon><span>Organization</span>
+      </li>  -->
+        <li>
+          <mat-icon inline>language</mat-icon
+          ><span>{{ profileData?.website }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

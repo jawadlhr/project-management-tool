@@ -1,0 +1,109 @@
+@mixin authSection {
+  .authSection {
+    padding: calc(1vw + 20px) 0;
+    h2 {
+      font-size: calc(1.5vw + 24px);
+      line-height: calc(2vw + 24px);
+      padding: calc(0.2vw + 5px);
+    }
+    p {
+      font-size: calc(0.5vw + 14px);
+      line-height: calc(1vw + 16px);
+      margin-bottom: calc(1vw + 16px);
+    }
+    form {
+      width: 100%;
+      padding: calc(2vw + 20px) 0;
+      .equalFields {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      mat-form-field {
+        width: 100%;
+        display: block;
+        padding: 0 5px;
+        .matPrefix {
+          margin-right: 5px;
+        }
+        .matSuffix {
+          margin-left: 5px;
+        }
+        .matSuffix:hover {
+          cursor: pointer;
+        }
+        .matInputAlert {
+          color: red;
+        }
+        .validationAlert span {
+          visibility: hidden;
+          background-color: black;
+          color: #fff;
+          text-align: center;
+          font-size: 12px;
+          border-radius: 6px;
+          padding: 10px;
+          position: absolute;
+          z-index: 1;
+          top: -5px;
+          right: 115%;
+        }
+        .validationAlert span::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent transparent transparent black;
+        }
+        .validationAlert:hover span {
+          visibility: visible;
+        }
+      }
+      a {
+        float: right;
+      }
+      button.mat-stroked-button {
+        padding: calc(0.2vw + 5px) calc(1vw + 30px);
+        border: 1px solid #673ab7;
+        border-radius: 25px;
+        display: block;
+        margin-top: calc(2vw + 30px);
+        font-size: calc(0.5vw + 14px);
+      }
+      button.mat-button {
+        padding: calc(0.2vw + 5px) calc(1vw + 15px);
+        display: block;
+        margin-top: calc(2vw + 30px);
+        font-size: calc(0.5vw + 12px);
+      }
+    }
+  }
+}
+
+@mixin onboardSection {
+  .resultSection {
+    padding: calc(1vw + 10px) 0;
+    img {
+      width: calc(5vw + 300px);
+    }
+    h4 {
+      font-size: calc(0.5vw + 16px);
+      line-height: calc(1.5vw + 18px);
+      padding: calc(0.5vw + 10px);
+    }
+    h5 {
+      font-size: calc(0.3vw + 12px);
+      line-height: calc(0.8vw + 16px);
+      padding: calc(0.5vw + 5px);
+    }
+    p {
+      font-size: calc(0.5vw + 14px);
+      line-height: calc(1vw + 16px);
+      margin-bottom: calc(1vw + 16px);
+    }
+  }
+}

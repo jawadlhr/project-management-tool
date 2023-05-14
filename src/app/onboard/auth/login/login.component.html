@@ -1,0 +1,136 @@
+<div class="authSection" *ngIf="active">
+  <h2>Log In</h2>
+  <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+
+  <form [formGroup]="logInForm" (ngSubmit)="portalLogIn()">
+    <!-- Email Form Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email address</mat-label>
+      <mat-icon matPrefix class="matPrefix">mail</mat-icon>
+      <input
+        type="email"
+        matInput
+        placeholder="example@example.com"
+        formControlName="email"
+      />
+      <mat-icon
+        matSuffix
+        class="matSuffix"
+        *ngIf="
+          (logInForm.controls['email'].valid && !emailExists) ||
+          (logInForm.controls['email'].untouched &&
+            logInForm.controls['email'].pristine)
+        "
+      >
+        alternate_email
+      </mat-icon>
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="
+          (logInForm.controls['email'].touched ||
+            logInForm.controls['email'].dirty) &&
+          logInForm.controls['email'].invalid &&
+          !emailExists
+        "
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>Enter Email Address</span>
+        <span *ngIf="logInForm.controls['email'].errors?.pattern">
+          Invalid Email Address
+        </span>
+      </div>
+
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="logInForm.controls['email'].dirty && emailExists"
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>{{ emailExists?.message }}</span>
+      </div>
+    </mat-form-field>
+
+    <!-- Password Form Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your Password</mat-label>
+      <mat-icon matPrefix class="matPrefix">vpn_key</mat-icon>
+      <input matInput type="password" formControlName="password" />
+      <mat-icon
+        matSuffix
+        class="matSuffix"
+        *ngIf="
+          (logInForm.controls['password'].valid && !passwordExists) ||
+          (logInForm.controls['password'].untouched &&
+            logInForm.controls['password'].pristine)
+        "
+      >
+        password
+      </mat-icon>
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="
+          (logInForm.controls['password'].touched ||
+            logInForm.controls['password'].dirty) &&
+          logInForm.controls['password'].invalid &&
+          !passwordExists
+        "
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>Enter your Password</span>
+        <span *ngIf="logInForm.controls['password'].errors?.pattern">
+          Invalid Password - At least 8 characters (A-Z, a-z, 0-9, Symbols)
+        </span>
+      </div>
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="logInForm.controls['password'].dirty && passwordExists"
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>{{ passwordExists?.message }}</span>
+      </div>
+    </mat-form-field>
+
+    <!-- Forgot Password -->
+    <a routerLink="/forgot-password">Forgot Password?</a>
+
+    <!-- Login Button -->
+    <button
+      type="submit"
+      mat-stroked-button
+      color="primary"
+      [disabled]="logInForm.invalid"
+      *ngIf="!loading"
+    >
+      Log In
+    </button>
+    <button type="submit" mat-button color="primary" *ngIf="loading">
+      <mat-icon><mat-spinner diameter="20"></mat-spinner></mat-icon> Logging in
+    </button>
+  </form>
+
+  <small>
+    * By logging in, you agree to our <a href="">Terms of Use</a> and
+    acknowledge that you read our <a href="">Privacy Policy</a>. Protected by
+    Google reCAPTCHA.
+  </small>
+</div>
+
+<div class="resultSection" *ngIf="!active">
+  <img
+    src="https://image.freepik.com/free-vector/mail-sent-concept-illustration_114360-168.jpg"
+    alt="Activate Your Account"
+  />
+  <h4>Activation Pending!!</h4>
+  <p>Please check your email for activation link.</p>
+  <h5>
+    If you didn't receive the activation email, consider checking in the
+    Spam/Junk folder and mark it as Not Junk.
+  </h5>
+  <h5>Didn't receive the activation link</h5>
+  <button mat-raised-button color="primary" routerLink="/resend">
+    Resend activation link
+  </button>
+</div>

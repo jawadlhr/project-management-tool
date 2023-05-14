@@ -1,0 +1,30 @@
+<div class="userProfile">
+<div class="coverImg">
+  <img src="{{coverImg}}" alt="">
+</div>
+<div class="blackGrid"></div>
+<div class="profileHeader">
+  <div class="profilePic">
+    <img src="{{profilePic}}" alt="">
+    <button mat-icon-button (click) = "profilePicPicker.click()"><mat-icon>photo_camera</mat-icon></button>
+    <input type="file" #profilePicPicker name="profilePic" accept="image/*" (change) = "selectProfilePic($event)">
+  </div>
+
+  <div class="profileName">
+    <h2>{{profileData?.firstName + ' ' + profileData?.lastName}}</h2>
+    <p>Inu Ltd.</p>
+  </div>
+
+  <div class="profileOptions">
+    <button mat-icon-button (click) = "coverImgPicker.click()"><mat-icon>photo_camera</mat-icon></button>
+    <input type="file" #coverImgPicker name="coverImg" accept="image/*" (change) = "selectCoverImg($event)">
+  </div>
+</div>
+
+<!-- Profile Intro Card -->
+<profile-intro></profile-intro>
+
+<!-- Profile Data Card -->
+<profile-data></profile-data>
+
+</div>

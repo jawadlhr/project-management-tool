@@ -1,0 +1,95 @@
+/******************** Stats ********************************/
+mat-drawer-content {
+  padding: calc(0.5vw + 10px) 0;
+}
+
+.statsCard {
+  margin: 20px;
+  background: #eee;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+  .statsCardBody {
+    display: flex;
+    justify-content: space-between;
+    padding: calc(0.5vw + 10px) calc(0.5vw + 20px) 0;
+    mat-icon {
+      font-size: 64px;
+    }
+    .stats {
+      text-align: right;
+      h2 {
+        font-size: 32px;
+      }
+    }
+  }
+  .statsCardFooter {
+    padding: calc(0.5vw + 10px) calc(0.5vw + 20px) 0;
+  }
+}
+
+.statistics {
+  margin: 20px;
+  background: #eee;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+  .statisticsHead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(0.2vw + 5px) calc(0.5vw + 20px);
+  }
+  .statisticsContent {
+    display: block;
+    padding: calc(0.2vw + 5px) calc(0.5vw + 20px);
+  }
+  .statisticsFooter {
+    padding: calc(0.2vw + 5px) calc(0.5vw + 20px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    span {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      mat-icon {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+/** Notifications Menu **/
+.notificationMenu {
+  margin: 20px;
+  background: #eee;
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+  .notificationMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(0.2vw + 12px) calc(0.5vw + 20px);
+  }
+  .notificationMenuContent {
+    padding-bottom: calc(0.2vw + 12px);
+    .notification {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 10px;
+      border-left: 2px solid red;
+      background: #eee;
+      .message {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      small {
+        line-height: 1.6;
+        padding: 0 15px;
+      }
+    }
+  }
+}

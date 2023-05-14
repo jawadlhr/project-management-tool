@@ -1,0 +1,44 @@
+<div class="manageClients">
+  <div class="headerSection">
+    <mat-form-field appearance="fill">
+      <mat-label>Filter by:</mat-label>
+      <mat-select multiple>
+        <mat-optgroup label="Country">
+          <mat-option value="valid">United Kingdom</mat-option>
+          <mat-option value="valid">United States</mat-option>
+        </mat-optgroup>
+        <mat-optgroup label="Account Status">
+          <mat-option value="valid">Active</mat-option>
+          <mat-option value="valid">Inactive</mat-option>
+        </mat-optgroup>
+      </mat-select>
+    </mat-form-field>
+    <div class="spacer"></div>
+    <form class="searchBar">
+      <input placeholder="Search..." />
+      <button mat-button><mat-icon>search</mat-icon></button>
+    </form>
+    <div class="view">
+      <button
+        mat-icon-button
+        color="primary"
+        class="mat-elevation-z1"
+        (click)="changeView(1)"
+      >
+        <mat-icon>grid_view</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        class="mat-elevation-z1"
+        (click)="changeView(2)"
+      >
+        <mat-icon>table_chart</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="sectionBody">
+    <grid-view *ngIf="view === 1"></grid-view>
+    <table-view *ngIf="view === 2"></table-view>
+  </div>
+</div>

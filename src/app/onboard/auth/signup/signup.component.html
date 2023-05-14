@@ -1,0 +1,338 @@
+<div class="authSection" *ngIf="!success">
+  <h2>Sign Up</h2>
+  <p>Already have an account? <a routerLink="/login">Log In</a></p>
+
+  <form [formGroup]="signUpForm" (ngSubmit)="portalSignUp()">
+    <!-- Name Form Field -->
+    <div class="equalFields">
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <mat-icon matPrefix class="matPrefix">person</mat-icon>
+          <input
+            type="text"
+            matInput
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              signUpForm.controls['firstName'].valid ||
+              (signUpForm.controls['firstName'].untouched &&
+                signUpForm.controls['firstName'].pristine)
+            "
+          >
+            create
+          </mat-icon>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="
+              (signUpForm.controls['firstName'].touched ||
+                signUpForm.controls['firstName'].dirty) &&
+              signUpForm.controls['firstName'].invalid
+            "
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Enter your First Name</span>
+            <span *ngIf="signUpForm.controls['firstName'].errors?.pattern">
+              Accepts Only Characters
+            </span>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <mat-icon matPrefix class="matPrefix">person</mat-icon>
+          <input
+            type="text"
+            matInput
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              signUpForm.controls['lastName'].valid ||
+              (signUpForm.controls['lastName'].untouched &&
+                signUpForm.controls['lastName'].pristine)
+            "
+          >
+            create
+          </mat-icon>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="
+              (signUpForm.controls['lastName'].touched ||
+                signUpForm.controls['lastName'].dirty) &&
+              signUpForm.controls['lastName'].invalid
+            "
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Enter your Last Name</span>
+            <span *ngIf="signUpForm.controls['lastName'].errors?.pattern">
+              Accepts Only Characters
+            </span>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Email Form Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email address</mat-label>
+      <mat-icon matPrefix class="matPrefix">mail</mat-icon>
+      <input
+        type="email"
+        matInput
+        placeholder="example@example.com"
+        formControlName="email"
+      />
+      <mat-icon
+        matSuffix
+        class="matSuffix"
+        *ngIf="
+          (signUpForm.controls['email'].valid && !emailExists) ||
+          (signUpForm.controls['email'].untouched &&
+            signUpForm.controls['email'].pristine)
+        "
+      >
+        alternate_email
+      </mat-icon>
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="
+          (signUpForm.controls['email'].touched ||
+            signUpForm.controls['email'].dirty) &&
+          signUpForm.controls['email'].invalid &&
+          !emailExists
+        "
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>Enter Email Address</span>
+        <span *ngIf="signUpForm.controls['email'].errors?.pattern">
+          Invalid Email Address
+        </span>
+      </div>
+
+      <div
+        class="validationAlert"
+        matSuffix
+        *ngIf="signUpForm.controls['email'].dirty && emailExists"
+      >
+        <mat-icon class="matInputAlert">error</mat-icon>
+        <span>{{ emailExists?.message }}</span>
+      </div>
+    </mat-form-field>
+
+    <!-- Username and Phone Number Form Field -->
+    <div class="equalFields">
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <mat-icon matPrefix class="matPrefix">badge</mat-icon>
+          <input
+            type="text"
+            matInput
+            placeholder="Username"
+            formControlName="username"
+          />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              (signUpForm.controls['username'].valid && !usernameExists) ||
+              (signUpForm.controls['username'].untouched &&
+                signUpForm.controls['username'].pristine)
+            "
+          >
+            create
+          </mat-icon>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="
+              (signUpForm.controls['username'].touched ||
+                signUpForm.controls['username'].dirty) &&
+              signUpForm.controls['username'].invalid &&
+              !usernameExists
+            "
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Enter your Username</span>
+            <span *ngIf="signUpForm.controls['username'].errors?.minlength">
+              Should be 3 characters long
+            </span>
+            <span *ngIf="signUpForm.controls['username'].errors?.pattern">
+              Only Letters, Numbers and Hyphens(-) are accepted
+            </span>
+          </div>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="signUpForm.controls['username'].dirty && usernameExists"
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>{{ usernameExists?.message }}</span>
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <mat-icon matPrefix class="matPrefix">phone_iphone</mat-icon>
+          <input
+            type="tel"
+            matInput
+            placeholder="+44 4444 444444"
+            formControlName="phone"
+          />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              signUpForm.controls['phone'].valid ||
+              (signUpForm.controls['phone'].untouched &&
+                signUpForm.controls['phone'].pristine)
+            "
+          >
+            phone_enabled
+          </mat-icon>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="signUpForm.controls['phone'].errors?.pattern"
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Invalid Phone Number</span>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Password Form Field -->
+    <div class="equalFields">
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a Password</mat-label>
+          <mat-icon matPrefix class="matPrefix">vpn_key</mat-icon>
+          <input matInput type="password" formControlName="password" />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              signUpForm.controls['password'].valid ||
+              (signUpForm.controls['password'].untouched &&
+                signUpForm.controls['password'].pristine)
+            "
+          >
+            password
+          </mat-icon>
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="
+              (signUpForm.controls['password'].touched ||
+                signUpForm.controls['password'].dirty) &&
+              signUpForm.controls['password'].invalid
+            "
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Enter your Password</span>
+            <span *ngIf="signUpForm.controls['password'].errors?.pattern">
+              At least 8 characters - A-Z, a-z, 0-9, Symbols
+            </span>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Confirm your Password</mat-label>
+          <mat-icon matPrefix class="matPrefix">vpn_key</mat-icon>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="confirmPassword"
+          />
+          <mat-icon
+            matSuffix
+            class="matSuffix"
+            *ngIf="
+              signUpForm.controls['confirmPassword'].valid ||
+              (signUpForm.controls['confirmPassword'].untouched &&
+                signUpForm.controls['confirmPassword'].pristine)
+            "
+            (click)="hide = !hide"
+            >{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon
+          >
+          <div
+            class="validationAlert"
+            matSuffix
+            *ngIf="
+              (signUpForm.controls['confirmPassword'].touched ||
+                signUpForm.controls['confirmPassword'].dirty) &&
+              signUpForm.controls['confirmPassword'].invalid
+            "
+          >
+            <mat-icon class="matInputAlert">error</mat-icon>
+            <span>Enter your Password</span>
+
+            <span
+              *ngIf="
+                signUpForm.controls['confirmPassword'].errors
+                  ?.confirmedValidator
+              "
+            >
+              Password didn't match.
+            </span>
+          </div>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Sign Up Button -->
+    <button
+      type="submit"
+      mat-stroked-button
+      color="primary"
+      [disabled]="signUpForm.invalid"
+      *ngIf="!loading"
+    >
+      Sign Up
+    </button>
+    <button type="submit" mat-button color="primary" *ngIf="loading">
+      <mat-icon><mat-spinner diameter="20"></mat-spinner></mat-icon> Creating
+      Account
+    </button>
+  </form>
+
+  <small>
+    * By signing up, you agree to our <a href="">Terms of Use</a> and
+    acknowledge that you read our <a href="">Privacy Policy</a>. Protected by
+    Google reCAPTCHA.
+  </small>
+</div>
+
+<div class="resultSection" *ngIf="success">
+  <img
+    src="https://image.freepik.com/free-vector/mail-sent-concept-illustration_114360-168.jpg"
+    alt="Activate Your Account"
+  />
+  <h4>Account Registered!</h4>
+  <p>Please check your Email for activation link.</p>
+  <h5>
+    If you didn't receive the activation email, consider checking in the
+    Spam/Junk folder and mark it as Not Junk.
+  </h5>
+  <h5>Didn't receive the activation link</h5>
+  <button mat-raised-button color="primary" routerLink="/resend">
+    Resend activation link
+  </button>
+</div>

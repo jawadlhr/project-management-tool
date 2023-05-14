@@ -1,0 +1,40 @@
+button {
+  margin: 0 calc(0.3vw + 2px);
+}
+
+/** Notifications Menu **/
+.notificationMenu {
+  .notificationMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+  }
+  .notification {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-left: 2px solid red;
+    background: #eee;
+
+    small {
+      line-height: 1.6;
+      padding: 0 10px;
+    }
+  }
+}
+
+/** Top Tooltip **/
+.topToolTip {
+  background-color: #fff;
+  box-shadow: 3px 3px 3px 0 rgba(23, 50, 68, 0.08);
+  content: ' ';
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  z-index: 900001;
+  right: 13px;
+  top: 2px;
+  transform: translateX(0) rotate(-135deg);
+}

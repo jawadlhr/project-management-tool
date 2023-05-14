@@ -1,0 +1,67 @@
+mat-toolbar {
+  height: auto;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 5px 24px;
+  box-shadow: 0 1px 5px 0 rgb(21 37 53 / 20%);
+  -webkit-box-shadow: 0 1px 5px 0 rgb(21 37 53 / 20%);
+  -moz-box-shadow: 0 1px 5px 0 rgb(21 37 53 / 20%);
+  .toolBarLogo {
+    padding: 5px 0;
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      border: none;
+    }
+  }
+  .toolBarSpacer {
+    flex: 1 1 auto;
+  }
+  .toolBarSearch {
+    padding: 3px 25px;
+    .searchBar {
+      background: #dedede;
+      border-radius: 5px;
+      input {
+        width: calc(15vw + 80px);
+        height: 48px;
+        border: 0;
+        border-radius: 5px;
+        background: #dedede;
+        text-indent: 16px;
+        font-size: 15px;
+        outline: none;
+        color: #000;
+      }
+      button {
+        height: 48px;
+        background: #dadada;
+      }
+      input:focus ~ button {
+        opacity: 1;
+        color: #333;
+        background: #ccc;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+      }
+    }
+  }
+  .toolBarItems {
+    border-left: 1px solid #dedede;
+    padding-left: calc(0.5vw + 5px);
+  }
+}
+
+::ng-deep .mat-menu-panel {
+  margin-top: 6px;
+  max-width: calc(6vw + 300px) !important;
+}
+::ng-deep.mat-menu-content {
+  // min-width: auto !important;
+  padding: 0 !important;
+}

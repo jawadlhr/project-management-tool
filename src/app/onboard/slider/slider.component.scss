@@ -1,0 +1,35 @@
+.slideContent {
+  padding: calc(1.5vw + 15px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  h2 {
+    font-size: calc(1.5vw + 24px);
+    line-height: calc(2vw + 24px);
+    padding: calc(0.2vw + 5px);
+  }
+  p {
+    font-size: calc(0.5vw + 14px);
+    line-height: calc(1vw + 16px);
+    margin-bottom: calc(1vw + 16px);
+  }
+  table {
+    table-layout: fixed;
+    border-spacing: calc(1.5vw + 20px) calc(0.5vw + 5px);
+    padding: calc(1.5vw + 10px) 0;
+    text-align: left;
+    th {
+      font-size: calc(0.4vw + 12px);
+      line-height: calc(0.4vw + 16px);
+    }
+    td {
+      font-size: calc(0.3vw + 12px);
+      padding: calc(0.3vw + 10px) 0;
+      border-top: 2px dashed;
+    }
+  }
+}

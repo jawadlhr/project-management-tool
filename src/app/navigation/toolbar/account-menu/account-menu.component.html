@@ -1,0 +1,39 @@
+<!-- Account Menu-->
+<div class="accountMenuButton" [matMenuTriggerFor]="accountMenu">
+  <button>User Name</button>
+  <img
+    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+    class="userPic"
+  />
+</div>
+
+<mat-menu #accountMenu="matMenu">
+  <div class="topToolTip"></div>
+  <div class="accountMenu">
+    <div class="accountMenuHeader">
+      <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt=""
+      />
+      <h4>Shiba Inu</h4>
+      <small>Dog@Breed.com</small>
+    </div>
+    <div class="accountMenuContent">
+      <div class="seperator"><strong>Account Settings</strong></div>
+      <a routerLink="/me" routerLinkActive="toolbarActiveLink">
+        <mat-icon inline>person</mat-icon>My Account
+      </a>
+      <a> <mat-icon inline>settings</mat-icon>Change Password </a>
+      <a> <mat-icon inline>settings</mat-icon>My Activity </a>
+      <a> <mat-icon inline>settings</mat-icon>Settings </a>
+      <a> <mat-icon inline>help_outline</mat-icon>Help Center </a>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="accountMenuFooter">
+      <button mat-stroked-button (click)="logOut()">
+        <mat-icon>logout</mat-icon>Log Out
+      </button>
+    </div>
+  </div>
+</mat-menu>

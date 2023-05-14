@@ -1,0 +1,16 @@
+.onBoardProcess {
+  padding: calc(1vw + 20px);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {
+//   .onBoardProcess {
+//     height: auto;
+//   }
+// }

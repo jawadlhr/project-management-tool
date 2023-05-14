@@ -1,0 +1,44 @@
+.profileHighlights {
+  display: flex;
+  flex-direction: column;
+  .dialogHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .mat-dialog-title {
+      margin: 0;
+      font-weight: bold;
+    }
+    button {
+      width: 36px;
+      height: 36px;
+      line-height: 1.4;
+    }
+  }
+  .mat-dialog-content {
+    margin: 10px 0;
+    text-align: justify !important;
+  }
+  form {
+    padding: 10px 0;
+    .basicInfo {
+      h3 {
+        padding-bottom: 5px;
+      }
+    }
+    .contactInfo {
+      h3 {
+        padding: 40px 0 5px;
+      }
+    }
+
+    mat-checkbox {
+      display: block;
+      line-height: 2.5;
+    }
+  }
+}
+
+.contactInfo {
+  padding-top: 50px;
+}

@@ -1,0 +1,105 @@
+<div class="contactInfo">
+<div class="tabHeader">
+  <h3>Contact Info</h3>
+  <button mat-icon-button (click) = "canEditContactInfo = !canEditContactInfo"><mat-icon>edit</mat-icon></button>
+</div>
+<div class="info" *ngIf="canEditContactInfo">
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>phone_iphone</mat-icon>
+      <span>Phone Number</span>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>email</mat-icon>
+      <span>Email Address</span>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>location_on</mat-icon>
+      <span>Location</span>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>language</mat-icon>
+      <span>Website</span>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>work_outline</mat-icon>
+      <span>Job Title</span>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="highlights">
+      <mat-icon inline>business</mat-icon>
+      <span>Organization</span>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<form class="contactInfoForm" [formGroup]="contactInfoForm" (ngSubmit)="saveContactInfo()" *ngIf="!canEditContactInfo">
+<div class="fieldGroup">
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <mat-icon matPrefix>phone_iphone</mat-icon>
+      <input type="tel" matInput placeholder="Phone Number" id="phone" formControlName="phone">
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Email Address</mat-label>
+      <mat-icon matPrefix>email</mat-icon>
+      <input type="email" matInput placeholder="Email Address" id="email" formControlName="email">
+    </mat-form-field>
+  </div>
+</div>
+<div class="fieldGroup">
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <mat-icon matPrefix>location_on</mat-icon>
+      <input type="text" matInput placeholder="Location" id="location" formControlName="location">
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Website</mat-label>
+      <mat-icon matPrefix>language</mat-icon>
+      <input type="url" matInput placeholder="Website" id="website" formControlName="website">
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="fieldGroup">
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Job Title</mat-label>
+      <mat-icon matPrefix>work_outline</mat-icon>
+      <input type="text" matInput placeholder="Job Title" id="jobTitle" formControlName="jobTitle">
+    </mat-form-field>
+  </div>
+  <div class="col-6">
+    <mat-form-field appearance="fill">
+      <mat-label>Organization</mat-label>
+      <mat-icon matPrefix>business</mat-icon>
+      <input type="text" matInput placeholder="Organization" id="organization" formControlName="organization">
+    </mat-form-field>
+  </div>
+</div>
+
+<button type="submit" mat-raised-button color="primary" [disabled]="contactInfoForm.invalid" *ngIf="loading">Save</button>
+<button type="button" mat-raised-button color="warn" *ngIf="loading" (click) = "canEditContactInfo = !canEditContactInfo">Cancel</button>
+<button type="submit" mat-button color="primary" *ngIf="!loading">
+  <mat-icon><mat-spinner diameter="20"></mat-spinner></mat-icon> Saving
+</button>
+</form>

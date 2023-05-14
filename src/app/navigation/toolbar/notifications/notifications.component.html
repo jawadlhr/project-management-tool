@@ -1,0 +1,80 @@
+<!-- Messages -->
+<button mat-icon-button [matMenuTriggerFor]="messages">
+  <mat-icon>mail_outline</mat-icon>
+</button>
+
+<mat-menu #messages="matMenu">
+  <div class="topToolTip"></div>
+  <div class="notificationMenu">
+    <div class="notificationMenuHeader">
+      <h5>Messages</h5>
+      <small>Mark all as read</small>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="notificationMenuContent">
+      <div class="notification">
+        <mat-icon>mark_email_unread</mat-icon>
+        <small>
+          <strong>New Message</strong><br />
+          You have upload the 124 files to the server. Please check
+        </small>
+        <mat-icon>cancel</mat-icon>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="notification">
+        <mat-icon>mark_email_unread</mat-icon>
+        <small>
+          <strong>New Message</strong><br />
+          You have upload the 124 files to the server. Please check
+        </small>
+        <mat-icon>cancel</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-menu>
+
+<!--- Notifications -->
+<button mat-icon-button [matMenuTriggerFor]="notifications">
+  <mat-icon matBadge="3" matBadgeColor="accent" matBadgeSize="small">
+    notifications
+  </mat-icon>
+</button>
+
+<mat-menu #notifications="matMenu">
+  <div class="topToolTip"></div>
+  <div class="notificationMenu">
+    <div class="notificationMenuHeader">
+      <h5>Notifications</h5>
+      <small>Mark all as read</small>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="notificationMenuContent">
+      <div class="notification">
+        <mat-icon>notifications_active</mat-icon>
+        <small>
+          You have upload the 124 files to the server. Following will be
+          assigned to a Team member.
+        </small>
+        <mat-icon>cancel</mat-icon>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="notification">
+        <mat-icon>notifications_active</mat-icon>
+        <small>
+          You have upload the 124 files to the server. Following will be
+          assigned to a Team member.
+        </small>
+        <mat-icon>cancel</mat-icon>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="notification">
+        <mat-icon>notifications_active</mat-icon>
+        <small>
+          You have upload the 124 files to the server. Following will be
+          assigned to a Team member.
+        </small>
+        <mat-icon>cancel</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-menu>

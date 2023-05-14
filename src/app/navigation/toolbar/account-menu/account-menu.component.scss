@@ -1,0 +1,89 @@
+.accountMenuButton {
+  display: inline-block;
+  button {
+    padding: 16px calc(0.5vw + 30px);
+    border: none;
+    border-radius: 5px 0 0 5px;
+    background-color: #dedede;
+    margin-left: calc(0.5vw + 10px);
+    cursor: pointer;
+  }
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 0 5px 5px 0;
+    background: #dedede;
+    border: none;
+  }
+}
+
+/** Account Menu **/
+.accountMenu {
+  overflow: hidden;
+  .accountMenuHeader {
+    justify-content: center;
+    text-align: center;
+    padding: 15px 0 10px;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto;
+    }
+    h4 {
+      margin: 0;
+      padding-top: 10px;
+      line-height: 1;
+    }
+  }
+  .accountMenuContent {
+    margin: 0;
+    color: #333;
+    .seperator {
+      padding: calc(0.2vw + 4px) calc(1.5vw + 60px);
+      background: #f0f3f6;
+      text-align: center;
+      font-size: 12px;
+      border: 1px solid #eee;
+    }
+    a {
+      display: flex;
+      padding: 5px 30px;
+      text-align: left;
+      margin: 0 -16px;
+      border: 1px solid #eee;
+      text-decoration: none;
+      color: inherit;
+    }
+    a:hover {
+      background: #dfedfe;
+    }
+    mat-icon {
+      font-size: 18px;
+      padding: 0 8px;
+    }
+  }
+  .accountMenuFooter {
+    text-align: center;
+    padding: 8px 0;
+    mat-icon {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+}
+
+/** Top Tooltip **/
+.topToolTip {
+  background-color: #fff;
+  box-shadow: 3px 3px 3px 0 rgba(23, 50, 68, 0.08);
+  content: ' ';
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  z-index: 900001;
+  right: 13px;
+  top: 2px;
+  transform: translateX(0) rotate(-135deg);
+}

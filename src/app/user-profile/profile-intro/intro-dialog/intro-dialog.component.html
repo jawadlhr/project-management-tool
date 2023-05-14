@@ -1,0 +1,43 @@
+<div class="profileHighlights">
+<div class="dialogHeader">
+  <h2 mat-dialog-title>Profile Introduction</h2>
+  <button mat-icon-button mat-dialog-close><mat-icon>close</mat-icon></button>
+</div>
+<div mat-dialog-content>Select Highlights to Showcase on your Profile.</div>
+<form class="" [formGroup]="profileIntroForm" (ngSubmit)="saveProfileIntro()">
+  <div class="basicInfo">
+    <h3>Basic Info</h3>
+    <div class="col-6">
+      <mat-checkbox color="primary">Name</mat-checkbox>
+      <mat-checkbox color="primary" [checked]="checked">Username</mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-checkbox color="primary">Gender</mat-checkbox>
+      <mat-checkbox color="primary" [checked]="checked">Date of Birth</mat-checkbox>
+    </div>
+  </div>
+
+  <div class="contactInfo">
+    <h3>Contact Info</h3>
+    <div class="col-6">
+      <mat-checkbox color="primary">Phone Number</mat-checkbox>
+      <mat-checkbox color="primary">Email Address</mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-checkbox color="primary" [checked]="checked">Location</mat-checkbox>
+      <mat-checkbox color="primary" [checked]="checked">Website</mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-checkbox color="primary" [checked]="checked">Job Title</mat-checkbox>
+    </div>
+    <div class="col-6">
+      <mat-checkbox color="primary" [checked]="checked">Organization</mat-checkbox>
+    </div>
+  </div>
+
+</form>
+<div mat-dialog-actions>
+  <button mat-stroked-button color="primary">Save</button>
+  <button mat-stroked-button mat-dialog-close color="warn">Close</button>
+</div>
+</div>

@@ -1,0 +1,25 @@
+.userIntro {
+  margin: 70px 50px;
+  padding: 10px 10px 10px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0px 3px 3px #ddd;
+  .userIntroHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .userHighlights ul {
+    list-style: none;
+    padding-top: 10px;
+    li {
+      display: flex;
+      align-items: center;
+      line-height: 1.8;
+      mat-icon {
+        font-size: 18px;
+        padding-right: 5px;
+      }
+    }
+  }
+}

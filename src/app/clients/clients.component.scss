@@ -1,0 +1,36 @@
+.dataContainer {
+  .containerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 50px;
+    h1 {
+      margin-bottom: 15px;
+      span {
+        background: #673ab7;
+        padding: 8px;
+        border-radius: 50%;
+        color: #fff;
+      }
+    }
+    .actionButtons {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      button {
+        padding: calc(0.1vw + 5px) calc(0.5vw + 15px);
+        border: 1px solid #673ab7;
+        border-radius: 25px;
+        display: block;
+        font-size: calc(0.3vw + 10px);
+        mat-icon {
+          font-size: calc(0.5vw + 14px);
+          margin-right: 10px;
+        }
+      }
+      button.mat-raised-button {
+        margin-right: calc(0.5vw + 15px);
+      }
+    }
+  }
+}

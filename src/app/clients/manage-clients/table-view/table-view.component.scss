@@ -1,0 +1,98 @@
+table {
+  width: 100%;
+  th {
+    font-size: 14px;
+    font-weight: bold;
+    background: rgba(103, 58, 183, 0.1);
+  }
+  .elementDetail {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    .profileHighlights {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: calc(4vw + 90px);
+      img {
+        width: calc(4vw + 90px);
+        height: calc(4vw + 90px);
+        border: 1px solid #000;
+        border-radius: 25px;
+        margin: 10px 0;
+      }
+      .socialIcons {
+        margin: 5px 0 10px;
+        a {
+          background: rgba(0, 0, 0, 0.15);
+          padding: 13px 3px 0 3px;
+          margin: 3px;
+          border-radius: 5px;
+          svg {
+            width: 22px;
+          }
+        }
+      }
+    }
+    .profileInfo {
+      padding: 30px 30px 30px 50px;
+      h1 {
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      p {
+        text-align: center;
+        line-height: 18px;
+        margin-bottom: 10px;
+      }
+      .info span + span {
+        float: right;
+      }
+    }
+    .statistics {
+      padding: 30px 0;
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .stats {
+        font-size: 2rem;
+        display: flex;
+        color: #red;
+        span {
+          font-size: 24px;
+        }
+        > div {
+          flex: 1;
+          text-align: center;
+        }
+      }
+      .actions {
+        display: flex;
+        padding: 20px;
+        button {
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+  .elementExpandedRow {
+    background: #f0f4f7;
+  }
+  tr.detailRow {
+    height: 0;
+    cursor: pointer;
+    background: #f0f4f7;
+  }
+  tr.elementRow:not(.elementExpandedRow):hover {
+    background: whitesmoke;
+    cursor: pointer;
+  }
+  tr.elementRow:not(.elementExpandedRow):active {
+    background: #efefef;
+  }
+  .elementRow td {
+    border-bottom-width: 0;
+  }
+}

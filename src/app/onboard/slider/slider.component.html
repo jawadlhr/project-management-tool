@@ -1,0 +1,46 @@
+<mat-carousel
+  timings="250ms ease-in"
+  [autoplay]="true"
+  [interval]="5000"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  maxWidth="auto"
+  [maintainAspectRatio]="false"
+  [proportion]="49"
+  [slides]="3"
+  slideHeight="100vh"
+  [useKeyboard]="true"
+  [useMouseWheel]="false"
+  orientation="ltr"
+>
+  <mat-carousel-slide
+    #matCarouselSlide
+    *ngFor="let slide of slides"
+    overlayColor="{{ slide.overlayColor }}"
+    [hideOverlay]="false"
+  >
+    <div class="slideContent">
+      <h2>{{ slide.title }}</h2>
+      <p>{{ slide.description }}</p>
+      <table width="100%">
+        <tr>
+          <th>{{ slide.subtitle1 }}</th>
+          <th>{{ slide.subtitle2 }}</th>
+        </tr>
+        <tr>
+          <td>{{ slide.description1 }}</td>
+          <td>{{ slide.description2 }}</td>
+        </tr>
+        <tr>
+          <th>{{ slide.subtitle3 }}</th>
+          <th>{{ slide.subtitle4 }}</th>
+        </tr>
+        <tr>
+          <td>{{ slide.description3 }}</td>
+          <td>{{ slide.description4 }}</td>
+        </tr>
+      </table>
+    </div>
+  </mat-carousel-slide>
+</mat-carousel>
